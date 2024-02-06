@@ -1,2 +1,2 @@
 created calculator.
-to start run main.py
+to start run calculator.py
