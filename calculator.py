@@ -1,16 +1,19 @@
-
+import logging
 
 def cal(t, x, y):
-    if t == '+':
-        return x + y
-    if t == '-':
-        return x - y
-    if t == '*':
-        return x * y
-    if t == '/':
-        if y == 0:
-            return "You can't divide by zero"
-        return x / y
+    match t:
+        case "+":
+            return x + y
+        case "-":
+            return x - y
+        case "*":
+            return x * y
+        case "/":
+            if y != 0:
+                return x / y
+            else:
+                return "You can't divide by zero"
+
 
 
 def calculathor():
@@ -27,12 +30,12 @@ def calculathor():
         iput = (input("type here: "))
         l = ['+', '-', '*', '/']
         if iput not in l:
-            print("Invalid input entered")
+            logging.warning("Invalid input entered")
         else:
             x = int(input("Enter a number: "))
             y = int(input("Enter a second  number: "))
-            print("The result is: " + str(cal(iput, x, y)))
-        loo = input(
+            print("The result is: " + str(cal(iput, x, y)) )
+            loo = input(
             "Do you want to continue? Type 'yes' if  you  want to continue or anything else if you dont: ").lower()
 
 calculathor()
